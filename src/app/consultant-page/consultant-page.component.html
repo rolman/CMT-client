@@ -15,7 +15,7 @@
         </mat-card-content>
       </div>
       <button mat-fab color="primary" [routerLink]="['/consultant-edit/' + consultant.id]">Edit</button>
-      <button mat-fab color="red" (click)="deleteConsultant()">Delete</button>
+      <button mat-fab color="red" (click)="deleteConsultant(consultant.id)">Delete</button>
     </mat-card>
   </div>
 
@@ -23,5 +23,5 @@
 
 </div>
 
-<a (click)="actionClick()" mat-button >Go to consultant list</a>
+<a mat-button (click)="actionClick()" >Go to consultant list</a>
 
