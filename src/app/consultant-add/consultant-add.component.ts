@@ -14,7 +14,7 @@ import {BusinessUnitService} from '../shared/businessUnit/business-unit.service'
 })
 export class ConsultantAddComponent implements OnInit, OnDestroy {
   @Input() consultant: Consultant = new class implements Consultant {
-    businessUnit: String;
+    businessUnit: any;
     description: String;
     firstName: String;
     gender: String;
@@ -34,7 +34,7 @@ export class ConsultantAddComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.businessUnitService.getAllBusinessUnits().toPromise().then(res => {this.businessUnits = res});
+    this.businessUnitService.getAllBusinessUnits().toPromise().then(res => {this.businessUnits = res; });
   }
 
   createConsultant(consultantToCreate: Consultant) {

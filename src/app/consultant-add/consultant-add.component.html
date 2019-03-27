@@ -22,7 +22,7 @@
 
       <mat-form-field>
         <mat-select placeholder="Business unit" [(ngModel)]="consultant.businessUnit" required name="businessUnit" #businessUnit>
-          <mat-option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.value">
+          <mat-option *ngFor="let businessUnit of businessUnits " [value]="businessUnit.name">
             {{businessUnit.name}}
           </mat-option>
         </mat-select>
