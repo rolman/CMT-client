@@ -6,3 +6,9 @@
   font-size: 25px;
 }
 
+.version {
+  .z-index: 2;
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+}
