@@ -1,0 +1,15 @@
+.consultant-page {
+  max-width: 400px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.consultant-description{
+  margin-top: 10px;
+}
+
+.sideBySide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

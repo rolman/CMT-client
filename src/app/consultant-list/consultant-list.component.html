@@ -1,0 +1,17 @@
+<mat-card class="consultant-list">
+    <mat-card-title>Consultant list</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let consultant of consultants">
+        <h3 mat-line>
+        <a mat-button [routerLink]="['/consultant-page', consultant.id]">{{consultant.firstName}}</a></h3>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <button mat-fab color="primary" [routerLink]="['/consultant-add']">Add</button>
+</mat-card>
+
+
+

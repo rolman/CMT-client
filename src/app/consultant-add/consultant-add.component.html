@@ -1,0 +1,40 @@
+<mat-card class="consultant-card">
+  <form #consultantForm="ngForm" (ngSubmit)="createConsultant(consultant);">
+    <mat-card-header>
+      <mat-card-title><h2>Create a new consultant</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <mat-form-field>
+        <input matInput placeholder="Consultant first name" [(ngModel)]="consultant.firstName" required name="firstName" #firstName>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Consultant last name" [(ngModel)]="consultant.lastName" required name="lastName" #lastName>
+      </mat-form-field>
+
+      <div class="example-container">
+        <label>Gender: </label>
+        <mat-radio-group [(ngModel)]="consultant.gender" required  name="gender" #gender>
+          <mat-radio-button value="M" >Male</mat-radio-button>
+          <mat-radio-button value="F">Female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <mat-form-field>
+        <mat-select placeholder="Business unit" [(ngModel)]="consultant.businessUnit" required name="businessUnit" #businessUnit>
+          <mat-option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.value">
+            {{businessUnit.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput placeholder="Description" [(ngModel)]="consultant.description" [ngModelOptions]="{standalone: true}"></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!consultantForm.form.valid">Save</button>
+      <a mat-button routerLink="/consultant-list">Cancel</a>
+    </mat-card-actions>
+  </form>
+</mat-card>

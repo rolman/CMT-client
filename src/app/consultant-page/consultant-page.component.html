@@ -1,0 +1,27 @@
+<div  class = "card">
+  <div class="consultant-card ">
+    <mat-card>
+      <mat-card-title-group>
+        <mat-card-title>{{consultant.firstName}} {{consultant.lastName}}</mat-card-title>
+        <mat-card-subtitle>BU: {{consultant.businessUnit}}</mat-card-subtitle>
+      </mat-card-title-group>
+      <div *ngIf="consultant.description">
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+      </div>
+      <div *ngIf="consultant.description">
+        <mat-card-content class="consultant-description">
+          {{consultant.description}}
+        </mat-card-content>
+      </div>
+      <button mat-fab color="primary" [routerLink]="['/consultant-edit/' + consultant.id]">Edit</button>
+      <button mat-fab color="red" (click)="deleteConsultant()">Delete</button>
+    </mat-card>
+  </div>
+
+    <app-consultant-missions-and-stats class="consultant-card "></app-consultant-missions-and-stats>
+
+</div>
+
+<a (click)="actionClick()" mat-button >Go to consultant list</a>
+

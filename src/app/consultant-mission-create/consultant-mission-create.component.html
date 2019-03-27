@@ -1,0 +1,44 @@
+<p>
+  consultant-mission-edit works!
+
+  {{mission.missionDescription}} Ici<
+</p>
+
+
+<mat-card class="consultant-card">
+  <form #missionForm="ngForm" (ngSubmit)="createMission(mission);">
+    <mat-card-header>
+      <mat-card-title>Edit {{consultant.firstName}} {{consultant.lastName}} mission</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <mat-form-field>
+        <input matInput placeholder="Mission name" [(ngModel)]="mission.missionName" required name="missionName" #missionName>
+      </mat-form-field>
+      <div>
+        <mat-form-field style="width:100%">
+          <textarea matInput placeholder="Description" [(ngModel)]="mission.missionDescription" [ngModelOptions]="{standalone: true}" ></textarea>
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <input matInput placeholder="TJM" [(ngModel)]="mission.tjm" required pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)" required name="missionTJM" #missionTJM>
+      </mat-form-field>
+
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Start date: (dd-mm-yyyy)" [(ngModel)]="mission.startDate" required pattern="^([0-2][0-9]|(3)[0-1])(-)(((0)[0-9])|((1)[0-2]))(-)\d{4}$" required name="startDate" #startDate>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="End date: (dd-mm-yyyy)" [(ngModel)]="mission.endDate" pattern="^([0-2][0-9]|(3)[0-1])(-)(((0)[0-9])|((1)[0-2]))(-)\d{4}|\$|^$" name="endDate" #endDate>
+        </mat-form-field>
+      </div>
+
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!missionForm.form.valid">Save</button>
+      <a mat-button (click)="validateClick()">Cancel</a>
+    </mat-card-actions>
+  </form>
+</mat-card>

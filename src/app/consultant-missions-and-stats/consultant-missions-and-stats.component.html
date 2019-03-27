@@ -1,0 +1,32 @@
+<div  class="card">
+  <mat-card>
+    <mat-card-title>Missions and stats</mat-card-title>
+
+    <mat-accordion *ngFor="let mission of missions; let i = index">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h3>{{mission.missionName}}</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+         <h3>Description :</h3>
+          {{mission.missionDescription}}
+        </div>
+        <div>
+          <h3>Start date :</h3>
+          {{mission.startDate}}
+        </div>
+        <div *ngIf="mission.endDate">
+          <h3>End date :</h3>
+          {{mission.endDate}}
+        </div>
+        <button mat-fab color="primary" [routerLink]="['/consultant-page/' + consultant.id + '/missions/' + mission.id]">Edit</button>
+        <button mat-fab color="primary" (click)="deleteMission(consultant, mission, i)">Delete</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <div style="padding-top: 5px">
+      <button mat-fab color="primary" [routerLink]="['/consultant-page/' + consultant.id + '/mission-create']">Add</button>
+    </div>
+  </mat-card>
+</div>
